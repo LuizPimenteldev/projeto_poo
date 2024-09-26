@@ -63,8 +63,13 @@ public class Camisas {
 		
 		Camisa2 = new Camisas();
 		System.out.println("Camisa 2");
+		Camisa2.setTam("M");	
+		Camisa2.Cor = "Azul";
+		System.out.println("Tamanho da camisa 2: "+Camisa2.Tamanho);
+		System.out.println("Cor da camisa 2: "+Camisa2.Cor);
+		Camisa2.informar_qtd_estoque();
 		
-		
+		System.out.println();
 	}
 
 }

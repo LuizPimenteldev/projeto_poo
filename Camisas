@@ -1,0 +1,70 @@
+package Vendas_TRAB;
+
+public class Camisas {
+	int Estoque;
+	String Nome;
+	String Cor;
+	String Tamanho;
+	
+	Camisas() {
+		this.Estoque = 100;
+	}
+	
+	void comprar() {
+		if(this.Estoque >= 10) {
+			System.out.println("Estoque ainda permanece alto!");
+			this.Estoque -= 9;
+		} else {
+			System.out.println("Estou quase acabando!");
+		}
+	}
+	
+	void informar_qtd_estoque() {
+		System.out.println("Estou com "+this.Estoque+" camisas em estoque!");
+	}
+	
+	void setTam(String Tamanho_Camisa) {
+		if(Tamanho == "") {
+			this.Tamanho = "Camisa sem tamanho";
+		} else {
+			this.Tamanho = Tamanho_Camisa;
+		}
+		
+	}
+	
+	void setNome(String Nome_Camisa) {
+		if(Nome == "") {
+			this.Nome = "Camisa sem nome";
+		} else {
+			this.Nome = Nome_Camisa;
+		}
+	}
+	
+	void cor_nome() {
+		System.out.printf("\nEu sou a %s!\n", this.Nome);
+		System.out.printf("\nMinha cor é %s\n", this.Cor);
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		Camisas Camisa1;
+		Camisas Camisa2;
+		
+		Camisa1 = new Camisas();
+		System.out.println("Camisa 1");
+		
+		Camisa1.setTam("G");
+		Camisa1.Cor = "Vermelha";
+		System.out.println("Tamanho da camisa 1: "+Camisa1.Tamanho);
+		System.out.println("Cor da camisa 1: "+Camisa1.Cor);
+		Camisa1.informar_qtd_estoque();
+		
+		System.out.println();
+		
+		Camisa2 = new Camisas();
+		System.out.println("Camisa 2");
+		
+		
+	}
+
+}

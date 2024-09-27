@@ -35,7 +35,7 @@ public class Loja {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Novo cliente chegou à loja!");
+            System.out.println("Novo otário chegou à Golpe Store!");
             System.out.println("Aqui estão os produtos disponíveis:");
 
             for (int i = 0; i < produtos.size(); i++) {
@@ -81,11 +81,11 @@ public class Loja {
 
             pedido.mostrarPedido();
 
-            System.out.println("Novo cliente deseja fazer compras? (S/N): ");
+            System.out.println("Novo otário deseja fazer compras? (S/N): ");
             String resposta = scanner.next();
 
             if (!resposta.equalsIgnoreCase("S")) {
-                System.out.println("Obrigado por usar a loja. Até a próxima!");
+                System.out.println("Obrigado por comprar na Golpe Store. Até a próxima!");
                 break;
             }
         }

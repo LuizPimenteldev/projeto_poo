@@ -1,15 +1,18 @@
 package trabalho_poo_loja;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pedido {
-    // Classe auxiliar para armazenar produto e quantidade de estoque inicial
+    // Classe auxiliar para armazenar produto, tamanho e quantidade inicial
     private class ItemPedido {
         Produto produto;
+        String tamanho;
         int estoqueInicial;
 
-        ItemPedido(Produto produto, int estoqueInicial) {
+        ItemPedido(Produto produto, String tamanho, int estoqueInicial) {
             this.produto = produto;
+            this.tamanho = tamanho;
             this.estoqueInicial = estoqueInicial;
         }
     }
@@ -22,30 +25,24 @@ public class Pedido {
         this.total = 0;
     }
 
-    public void adicionarProduto(Produto produto, int quantidade) {
-        if (produto.getEstoque() >= quantidade) {
-            // Armazenar o estoque antes de reduzir
-            int estoqueInicial = produto.getEstoque();
-            // Reduzir o estoque
-            produto.reduzirEstoque(quantidade);
-            // Adicionar ao pedido
-            itens.add(new ItemPedido(produto, estoqueInicial));
+    public void adicionarProduto(Produto produto, String tamanho, int quantidade) {
+        if (produto.getEstoquePorTamanho(tamanho) >= quantidade) {
+            int estoqueInicial = produto.getEstoquePorTamanho(tamanho);
+            produto.reduzirEstoque(tamanho, quantidade);
+            itens.add(new ItemPedido(produto, tamanho, estoqueInicial));
             total += produto.getPreco() * quantidade;
         } else {
-            System.out.println("Estoque insuficiente para o produto: " + produto.getNome());
+            System.out.println("Estoque insuficiente para o tamanho " + tamanho + " do produto: " + produto.getNome());
         }
     }
 
     public void mostrarPedido() {
         System.out.println("Itens do Pedido:");
         for (ItemPedido item : itens) {
-            // Formatar o preço com "R$" e duas casas decimais
             String precoFormatado = String.format("R$%.2f", item.produto.getPreco());
-            // Mostrar o estoque original antes da redução
-            System.out.println(item.produto.getNome() + " - Preço: " + precoFormatado + " - Em estoque (inicial): " + item.estoqueInicial);
+            System.out.println(item.produto.getNome() + " - Tamanho: " + item.tamanho + " - Preço: " + precoFormatado + " - Em estoque (inicial): " + item.estoqueInicial);
         }
 
-        // Formatar o total com "R$" e duas casas decimais
         String totalFormatado = String.format("R$%.2f", total);
         System.out.println("Total: " + totalFormatado);
     }

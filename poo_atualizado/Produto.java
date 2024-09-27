@@ -4,16 +4,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
+// classe
 public class Produto {
-    private String nome;
+    private String nome;    //atributos 
     private double preco;
     private Map<String, Integer> estoquePorTamanho; // Armazena o estoque por tamanho (PP, P, M, G)
-
+    
+    // construtor, inicializador do objeto
     public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
+        
         // Usando LinkedHashMap para manter a ordem de inserção
-        this.estoquePorTamanho = new LinkedHashMap<>();
+        this.estoquePorTamanho = new LinkedHashMap<>(); 
     }
 
     // Método para definir o estoque de cada tamanho
@@ -37,7 +40,7 @@ public class Produto {
             return false;
         }
     }
-
+    //método get
     public String getNome() {
         return nome;
     }
